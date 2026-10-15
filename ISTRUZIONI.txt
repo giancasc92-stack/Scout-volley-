@@ -1,0 +1,31 @@
+SCOUT VOLLEY — PACCHETTO PWA OFFLINE
+
+CONTENUTO
+- index.html: app Scout Volley completa
+- manifest.webmanifest: nome, icona e impostazioni installazione
+- sw.js: cache offline dell'app
+- icon-192.png e icon-512.png: icone installabili
+
+IMPORTANTE
+Per poter essere installata come una normale app e funzionare offline, la PWA deve essere pubblicata una prima volta su un indirizzo HTTPS. Apri il link online una volta, installa/aggiungi Scout Volley alla schermata Home o al desktop e aprila almeno una volta con connessione. Dopo il primo caricamento, l'app e le sue risorse locali vengono memorizzate e può essere usata senza Internet.
+
+L'installazione PWA non si attiva aprendo index.html direttamente da file://: i browser richiedono HTTPS (o localhost) per i service worker.
+
+TELEFONO ANDROID
+1. Pubblica la cartella su un hosting statico HTTPS.
+2. Apri il link in Chrome.
+3. Dal menu ⋮ scegli “Installa app” oppure “Aggiungi a schermata Home”.
+4. Apri Scout Volley almeno una volta online; poi potrai usarla offline.
+
+IPHONE/IPAD
+1. Pubblica la cartella su hosting HTTPS e apri il link in Safari.
+2. Tocca Condividi > Aggiungi alla schermata Home.
+3. Apri l'app almeno una volta con Internet prima dell'uso offline.
+
+WINDOWS / MAC
+1. Apri il link HTTPS con Chrome o Edge.
+2. Usa l'icona Installa nella barra degli indirizzi o il menu del browser > Installa Scout Volley.
+3. Dopo il primo caricamento, la PWA può essere aperta anche offline.
+
+DATI
+Le azioni e le impostazioni sono salvate nel browser tramite localStorage. I dati restano sul dispositivo/browser in cui vengono inseriti; non vengono sincronizzati automaticamente tra telefono e computer. Esporta/conserva i file di lavoro quando disponibili e non cancellare i dati del sito se vuoi mantenerli.
