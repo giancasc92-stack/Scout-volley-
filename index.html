@@ -5,58 +5,34 @@
 <title>Scout Volley</title>
 <style>
 :root{color-scheme:light dark;--bg:light-dark(#f2f5f8,#141a22);--panel:light-dark(#fff,#202936);--ink:light-dark(#172b4d,#edf3fb);--muted:light-dark(#667085,#a8b3c2);--line:light-dark(#d5dee7,#3a4758);--accent:light-dark(#2458bd,#82aaff)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px system-ui,-apple-system,sans-serif}.app{max-width:1250px;margin:auto;padding:20px}.head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}h1{margin:0;font-size:25px}h2{font-size:18px;margin:0 0 12px}p{color:var(--muted);margin:5px 0 15px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}input,select,button{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px;width:100%}button{background:var(--accent);color:white;border:0;font-weight:650;cursor:pointer}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.actions button{width:auto}.mutedbtn{background:#657487}.roster{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}.rosteritem{border:1px solid var(--line);border-radius:9px;padding:8px}.rosteritem strong{font-size:12px}.rotgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:12px}.rotation{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--panel)}.rotation h3{margin:0 0 10px}.courts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.courtbox{font-size:11px;color:var(--muted)}canvas{width:100%;display:block;border:1px solid var(--line);border-radius:4px;background:#fff}.small{font-size:12px;color:var(--muted)}.log{max-height:280px;overflow:auto;font:12px ui-monospace,monospace}.logrow{display:flex;align-items:center;gap:8px;padding:7px 4px;border-bottom:1px solid var(--line)}.logtext{flex:1;min-width:0;overflow-wrap:anywhere;white-space:pre-wrap}.trashbtn{width:auto;flex:0 0 auto;padding:6px 9px;background:#b42318;color:#fff;border-radius:7px;font-size:13px}.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)}.linekey{display:inline-block;width:18px;height:4px;margin-right:5px;vertical-align:middle}.green{background:#198754}.red{background:#d62828}.pages{display:none}.video-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(220px,1fr);gap:14px;align-items:start}.video-player{width:100%;max-height:65vh;background:#080b10;border-radius:10px;display:block}.time-pill{font-variant-numeric:tabular-nums;font-weight:700}.logtime{width:auto;flex:0 0 auto;padding:6px 8px;background:#2458bd;color:white;border-radius:7px;font-size:12px}.distribution-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}.distribution-card{border:1px solid var(--line);border-radius:9px;padding:10px}.distribution-card strong{display:block;font-size:18px}.distribution-card .bar{height:7px;background:#dce5ee;border-radius:99px;overflow:hidden;margin-top:7px}.distribution-card .bar span{display:block;height:100%;background:#2458bd}.printdist{font-size:7pt;margin:1mm 0 0}.printfoot{font-size:6.5pt;margin-top:1mm}@media(max-width:700px){.video-layout{grid-template-columns:1fr}}
-@media print{
-html,body{width:297mm;height:420mm;margin:0;padding:0;background:#fff;color:#111}
-.app{display:none!important}
-.pages{display:block!important;width:297mm;margin:0;padding:0}
-.printpage{display:flex;flex-direction:column;width:297mm;height:420mm;min-height:420mm;page-break-after:always;padding:3mm 4mm;box-sizing:border-box;overflow:hidden;font-family:Arial,sans-serif}
-.printpage:last-child{page-break-after:auto}
-.printhead{flex:0 0 7mm;font-size:13pt;font-weight:bold;margin:0;line-height:7mm}
-.printgrid{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(6,minmax(0,1fr));gap:1.5mm;height:406mm;flex:1 1 auto;min-height:0;width:100%}
-.printrot{display:flex;flex-direction:column;border:1px solid #9ba8b4;border-radius:1mm;padding:.7mm;break-inside:avoid;min-height:0;min-width:0;overflow:hidden}
-.printrot h3{flex:0 0 3mm;font-size:7pt;line-height:3mm;margin:0;white-space:nowrap}
-.printcourts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:minmax(0,1fr);column-gap:4mm;row-gap:0;height:auto;flex:1 1 auto;min-height:0;width:100%;padding:0 1mm}
-.printcourt{display:grid;grid-template-rows:3mm minmax(0,1fr);gap:.2mm;align-items:stretch;min-width:0;min-height:0;overflow:hidden}
-.printcourt b{font-size:6pt;line-height:3mm;margin:0;white-space:nowrap;text-align:center}
-.printcourt canvas{display:block;width:88%!important;height:100%!important;justify-self:center;min-width:0;min-height:0;border:1px solid #718392;box-sizing:border-box}
-.note{display:none!important}
-.printdist{font-size:5pt;margin:0}
-.printfoot{font-size:5pt;margin-top:.3mm}
-@page{size:A3 portrait;margin:0}
-}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px system-ui,-apple-system,sans-serif}.app{max-width:1250px;margin:auto;padding:20px}.head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}h1{margin:0;font-size:25px}h2{font-size:18px;margin:0 0 12px}p{color:var(--muted);margin:5px 0 15px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}input,select,button{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px;width:100%}button{background:var(--accent);color:white;border:0;font-weight:650;cursor:pointer}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.actions button{width:auto}.mutedbtn{background:#657487}.roster{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:5px}.rosteritem{border:1px solid var(--line);border-radius:8px;padding:5px;min-width:0}.rosteritem .player-name{font-size:12px;line-height:1.2;overflow-wrap:anywhere}.roster-more{margin-top:7px}.roster-more summary{cursor:pointer;color:var(--muted);font-weight:650;padding:5px}.roster-more .roster{margin-top:5px}.rosteritem strong{font-size:12px}.player-tools{display:flex;gap:4px;align-items:center;justify-content:flex-end;margin-top:6px}.player-tools button{width:27px;height:25px;padding:2px;background:#657487;font-size:15px;line-height:1}.player-tools button.has-content{background:#198754}.player-photo,.player-note{display:none}.profile-overlay{display:none;position:fixed;inset:0;background:#0009;z-index:999;align-items:center;justify-content:center;padding:16px}.profile-card{width:min(760px,100%);max-height:90vh;overflow:auto;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:16px}.profile-top{display:flex;gap:16px;align-items:flex-start}.profile-photo{width:120px;height:150px;object-fit:cover;border-radius:10px;background:var(--bg);border:1px solid var(--line)}.profile-role{font-size:13px;color:var(--muted);margin-top:6px}.profile-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}.profile-stat{border:1px solid var(--line);border-radius:10px;padding:12px}.profile-stat small{display:block;color:var(--muted)}.profile-stat strong{display:block;font-size:24px;margin-top:4px}.profile-actions{display:flex;justify-content:flex-end;margin-top:14px}.profile-actions button{width:auto}.rotgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:12px}.rotation{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--panel)}.rotation h3{margin:0 0 10px}.courts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.courtbox{font-size:11px;color:var(--muted)}canvas{width:100%;display:block;border:1px solid var(--line);border-radius:4px;background:#fff}.small{font-size:12px;color:var(--muted)}.log{max-height:280px;overflow:auto;font:12px ui-monospace,monospace}.logrow{display:flex;align-items:center;gap:8px;padding:7px 4px;border-bottom:1px solid var(--line)}.logtext{flex:1;min-width:0;overflow-wrap:anywhere;white-space:pre-wrap}.trashbtn{width:auto;flex:0 0 auto;padding:6px 9px;background:#b42318;color:#fff;border-radius:7px;font-size:13px}.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)}.linekey{display:inline-block;width:18px;height:4px;margin-right:5px;vertical-align:middle}.green{background:#198754}.red{background:#d62828}.pages{display:none}.video-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(220px,1fr);gap:14px;align-items:start}.video-player{width:100%;max-height:65vh;background:#080b10;border-radius:10px;display:block}.time-pill{font-variant-numeric:tabular-nums;font-weight:700}.logtime{width:auto;flex:0 0 auto;padding:6px 8px;background:#2458bd;color:white;border-radius:7px;font-size:12px}.distribution-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}.distribution-card{border:1px solid var(--line);border-radius:9px;padding:10px}.distribution-card strong{display:block;font-size:18px}.distribution-card .bar{height:7px;background:#dce5ee;border-radius:99px;overflow:hidden;margin-top:7px}.distribution-card .bar span{display:block;height:100%;background:#2458bd}.printdist{font-size:7pt;margin:1mm 0 0}.printfoot{font-size:6.5pt;margin-top:1mm}@media(max-width:700px){.video-layout{grid-template-columns:1fr}}
+@media print{body{background:white;color:#111}.app{display:none}.pages{display:block}.printpage{height:190mm;page-break-after:always;padding:6mm;font-family:Arial,sans-serif}.printpage:last-child{page-break-after:auto}.printhead{font-size:16pt;font-weight:bold;margin-bottom:2mm}.printgrid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr);gap:3mm;height:164mm}.printrot{border:1px solid #9ba8b4;border-radius:2mm;padding:2mm;break-inside:avoid}.printrot h3{font-size:9pt;margin:0 0 1.5mm}.printcourts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2mm;height:calc(100% - 6mm)}.printcourt{position:relative;display:flex;flex-direction:column;min-width:0}.printcourt b{font-size:7pt;margin-bottom:1mm}.printcourt canvas{height:calc(100% - 10mm);border:1px solid #718392}.note{font-size:6pt;margin-top:1mm;border-bottom:1px solid #aaa;height:7mm;color:#333}.printfoot{font-size:6.5pt;margin-top:1mm}@page{size:A4 landscape;margin:0}}
 </style>
-<link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#2458bd">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Scout Volley">
-<link rel="icon" href="icon-192.png" sizes="192x192">
-<link rel="apple-touch-icon" href="icon-192.png">
 </head>
 <body><main class="app">
 <div class="head"><div><h1>Scout Volley</h1><p>Scouting per rotazioni, ricezione, basi del centrale e traiettorie d'attacco.</p></div><div class="actions" style="margin-top:0"><button style="width:auto" onclick="saveWorkFile()">Salva lavoro</button><button class="mutedbtn" style="width:auto" onclick="document.getElementById('loadWorkFile').click()">Riprendi lavoro</button><button style="width:auto" onclick="window.print()">Esporta PDF finale</button><input id="loadWorkFile" type="file" accept=".json,application/json" style="display:none" onchange="loadWorkFile(event)"></div></div>
 <section class="panel"><h2>Salvataggio del lavoro</h2><p>Il lavoro viene memorizzato automaticamente in questo browser. Usa <b>Salva lavoro</b> per scaricare un file di progetto e <b>Riprendi lavoro</b> per caricarlo anche in un altro momento o dispositivo. Quando hai finito, premi <b>Esporta PDF finale</b> e scegli “Salva come PDF” nella finestra di stampa.</p><p class="small" id="saveStatus">Salvataggio automatico pronto.</p></section>
 
 <section class="panel"><h2>Anagrafica giocatori</h2><p>Associa numero e cognome ai ruoli. Il numero può essere usato al posto di S1/S2/O/C1/C2/L.</p>
-<div class="fields"><div><label>Ruolo</label><select id="role"><option>S1</option><option>S2</option><option>O</option><option>C1</option><option>C2</option><option>L</option></select></div><div><label>Numero maglia</label><input id="jersey" placeholder="es. 12" inputmode="numeric"></div><div><label>Cognome</label><input id="surname" placeholder="es. Rossi"></div><div style="align-self:end"><button onclick="savePlayer()">Salva giocatore</button></div></div><div class="roster" id="roster" style="margin-top:12px"></div></section>
+<div class="fields"><div><label>Ruolo</label><select id="role"><option>S1</option><option>S2</option><option>O</option><option>P</option><option>C1</option><option>C2</option><option>L</option><option>S3</option><option>S4</option><option>P2</option><option>O2</option><option>C3</option><option>C4</option><option>Lib2</option></select></div><div><label>Numero maglia</label><input id="jersey" placeholder="es. 12" inputmode="numeric"></div><div><label>Cognome</label><input id="surname" placeholder="es. Rossi"></div><div style="align-self:end"><button onclick="savePlayer()">Salva giocatore</button></div></div><div class="roster" id="roster" style="margin-top:12px"></div></section>
+<div class="profile-overlay" id="profileOverlay" onclick="if(event.target===this)closePlayerProfile()"><div class="profile-card"><div class="profile-top"><div><img id="profilePhoto" class="profile-photo" alt="Foto giocatore"><div id="profileRole" class="profile-role"></div><div style="margin-top:10px;font-size:13px"><strong>Note :</strong><div id="profileNote" style="white-space:pre-wrap;overflow-wrap:anywhere;margin-top:4px">Nessuna nota inserita</div></div></div><div style="flex:1;min-width:0"><h2 id="profileName">Profilo giocatore</h2><p id="profileIdentity" class="small"></p><div class="profile-stats"><div class="profile-stat"><small>Attacchi effettuati</small><strong id="profileAttacks">0</strong></div><div class="profile-stat"><small>Punti in attacco / attacchi</small><strong id="profileAttackPct">0%</strong></div><div class="profile-stat"><small>Ricezioni attribuite</small><strong id="profileReceives">0</strong></div><div class="profile-stat"><small>Ricezioni positive/perfette</small><strong id="profileReceivePct">0%</strong></div></div></div></div><p class="small" id="profileMethod"></p><div class="profile-actions"><button type="button" onclick="closePlayerProfile()">Chiudi</button></div></div></div>
 <section class="panel" id="videoPanel"><h2>Video gara · studio con codici sincronizzati</h2><p>Carica un video dal dispositivo e guardalo direttamente qui. Quando registri un’azione, Scout Volley memorizza il minuto/secondo del video; dal registro potrai tornare a quel momento con un tocco.</p><div class="fields"><div><label>Carica video della partita</label><input id="matchVideoFile" type="file" accept="video/*"></div><div><label>Video attualmente caricato</label><p id="videoName" class="small">Nessun video caricato.</p></div></div><div class="video-layout" style="margin-top:12px"><div><video id="matchVideo" class="video-player" controls playsinline preload="metadata"></video><div class="actions"><button type="button" class="mutedbtn" onclick="setVideoTime(-5)">−5 s</button><button type="button" class="mutedbtn" onclick="setVideoTime(5)">+5 s</button><button type="button" onclick="captureVideoTime()">Segna momento video</button></div></div><div><div class="small">Momento corrente</div><div id="videoClock" class="time-pill" style="font-size:24px;margin:4px 0 12px">00:00</div><p class="small">Suggerimento: metti in pausa sul contatto o sull’azione da codificare, compila i campi sottostanti e premi “Registra azione”. Il timestamp verrà associato al codice.</p><p class="small" id="videoStatus">Il video resta sul tuo dispositivo: non viene caricato su un server.</p></div></div></section>
 <section class="panel"><h2>Registra un'azione</h2><div class="fields">
 <div><label>Fase</label><select id="phase"><option>Cambio palla</option><option>Break point</option></select></div>
-<div><label>Rotazione</label><select id="rotation"><option>P1</option><option>P6</option><option>P5</option><option>P4</option><option>P3</option><option>P2</option></select></div>
-<div><label>Ricezione / difesa</label><select id="receive"><option value="R#">R# — perfetta</option><option value="R+">R+ — positiva</option><option value="R-">R- — negativa</option><option value="R=">R= — errore</option><option value="D-">D- — difesa negativa</option></select></div><div><label>Zona di ricezione</label><select id="receiveZone"><option value="1">Zona 1</option><option value="5">Zona 5</option><option value="6" selected>Zona 6</option></select></div>
+<div><label>Rotazione</label><select id="rotation"><option>P1</option><option>P6</option><option>P5</option><option>P4</option><option>P3</option><option>P2</option><option>P1 (invertita)</option></select></div>
+<div><label>Ricezione / difesa</label><select id="receive"><option value="R#">R# — perfetta</option><option value="R+">R+ — positiva</option><option value="R-">R- — negativa</option><option value="R=">R= — errore</option></select></div><div><label>Zona di ricezione</label><select id="receiveZone"><option value="1">Zona 1</option><option value="5">Zona 5</option><option value="6" selected>Zona 6</option><option value="4">Zona 4 (sporadica)</option><option value="3">Zona 3 (sporadica)</option><option value="2">Zona 2 (sporadica)</option></select></div>
 <div><label>Base centrale</label><select id="base"><option>B1</option><option selected>B7</option><option>B2</option><option>B/</option></select></div>
-<div><label>Attaccante</label><select id="attacker"><option value="S1">S1 — primo laterale</option><option value="S2">S2 — secondo laterale</option><option value="O">O — opposto</option><option value="C1">C1 — primo centrale</option><option value="C2">C2 — secondo centrale</option><option value="L">L — libero</option><option value="12">Numero maglia</option></select></div>
+<div><label>Attaccante</label><select id="attacker"><option value="S1">S1 — primo laterale</option><option value="S2">S2 — secondo laterale</option><option value="O">O — opposto</option><option value="P">P — palleggiatore</option><option value="C1">C1 — primo centrale</option><option value="C2">C2 — secondo centrale</option><option value="L">L — libero</option><option value="S3">S3 — terzo laterale</option><option value="S4">S4 — quarto laterale</option><option value="P2">P2 — secondo palleggiatore</option><option value="O2">O2 — secondo opposto</option><option value="C3">C3 — terzo centrale</option><option value="C4">C4 — quarto centrale</option><option value="Lib2">Lib2 — secondo libero</option><option value="12">Numero maglia</option></select></div>
 <div><label>Numero (se usato)</label><input id="customjersey" placeholder="es. 12"></div>
 <div><label>Zona di partenza attacco</label><select id="origin"><option value="auto" selected>Automatica secondo rotazione/ruolo</option><option value="4">Zona 4</option><option value="3">Zona 3</option><option value="2">Zona 2</option><option value="5">Zona 5 (seconda linea)</option><option value="6">Zona 6 (seconda linea)</option><option value="1">Zona 1 (seconda linea)</option></select></div>
 <div><label>Traiettoria</label><select id="trajectory"><option value="D">D — diagonale</option><option value="P">P — parallela</option><option value="Pa">Pa — pallonetto</option></select></div>
 <div><label>Zona obiettivo (anche ibrida)</label><select id="zone"><option value="5">5</option><option value="6" selected>6</option><option value="1">1</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="56">56 — seam 5/6</option><option value="61">61 — seam 6/1</option><option value="54">54 — seam 5/4</option><option value="45">45 — seam 4/5</option><option value="46">46 — seam 4/6</option><option value="65">65 — seam 6/5</option><option value="16">16 — seam 1/6</option><option value="12">12 — seam 1/2</option><option value="21">21 — seam 2/1</option><option value="23">23 — seam 2/3</option><option value="32">32 — seam 3/2</option><option value="34">34 — seam 3/4</option><option value="43">43 — seam 4/3</option><option value="25">25 — seam 2/5</option><option value="36">36 — seam 3/6</option></select></div>
-<div><label>Esito attacco</label><select id="outcome"><option value="#"># — punto</option><option value="+">+ — positivo</option><option value="-">- — negativo</option><option value="=">= — errore</option><option value="=M">=M — muro subito</option></select></div>
+<div><label>Esito attacco</label><select id="outcome"><option value="#"># — punto</option><option value="+">+ — positivo</option><option value="-">- — negativo</option><option value="=">= — errore</option><option value="=M">=M — muro subito</option><option value="=M+">=M+ — muro subito positivo</option></select></div>
 <div><label>Note</label><input id="notes" placeholder="Nota breve"></div>
 </div><div class="actions"><button onclick="addAction()">Registra azione</button><button class="mutedbtn" onclick="clearActions()">Svuota registro</button></div><p class="small" id="status">Le percentuali di ricezione vengono calcolate dalle azioni registrate e mostrate nei mini campi.</p></section>
 <section class="panel"><h2>Distribuzione d’attacco del palleggiatore</h2><p>Percentuale di alzate/attacchi registrati per attaccante. Il calcolo usa tutte le azioni d’attacco codificate nella fase selezionata, indipendentemente dall’esito, e si aggiorna automaticamente.</p><div id="setterDistribution" class="distribution-grid"></div><p id="setterDistributionSummary" class="small"></p></section>
-<section class="panel"><h2>Scheda PDF aggiornata</h2><p>La scheda di scouting aggiornata è incorporata in questa pagina: 6 rotazioni su una pagina per il Cambio palla e una per la fase Break, con la sola percentuale positiva nelle zone di ricezione 1, 5 e 6.</p><div class="actions"><button type="button" onclick="openScoutingPdf()">Apri PDF aggiornato</button><button type="button" class="mutedbtn" onclick="downloadScoutingPdf()">Scarica PDF</button></div><p class="small">La scheda è incorporata nell’interfaccia e puoi consultarla mentre lavori. Nota: le zone di partenza automatiche sono una base modificabile, non una regola universale; scegli una zona manuale se la vostra organizzazione tattica è diversa.</p><iframe id="pdfLive" title="Scheda scouting PDF" style="width:100%;height:430px;border:1px solid var(--line);border-radius:10px;background:white"></iframe></section>
-<section class="panel"><h2>Registro azioni</h2><div class="log" id="log">Nessuna azione registrata.</div><div class="legend" style="margin-top:12px"><span><i class="linekey green"></i>Punto: verde spessa</span><span><i class="linekey green" style="height:2px"></i>Positivo: verde sottile</span><span><i class="linekey red"></i>Errore: rosso spessa</span><span><i class="linekey red" style="height:2px"></i>Negativo: rosso sottile</span><span>Muro: linea rossa a V</span></div></section>
+<section class="panel"><h2>Scheda PDF aggiornata</h2><p>La scheda di scouting aggiornata è incorporata in questa pagina: rotazioni su una pagina per il Cambio palla e una per la fase Break, con la sola percentuale positiva nelle zone di ricezione 1, 5 e 6.</p><div class="actions"><button type="button" onclick="openScoutingPdf()">Apri PDF aggiornato</button><button type="button" class="mutedbtn" onclick="downloadScoutingPdf()">Scarica PDF</button></div><p class="small">La scheda è incorporata nell’interfaccia e puoi consultarla mentre lavori. Nota: le zone di partenza automatiche sono una base modificabile, non una regola universale; scegli una zona manuale se la vostra organizzazione tattica è diversa.</p><iframe id="pdfLive" title="Scheda scouting PDF" style="width:100%;height:430px;border:1px solid var(--line);border-radius:10px;background:white"></iframe></section>
+<section class="panel"><h2>Registro azioni</h2><div class="log" id="log">Nessuna azione registrata.</div><div class="legend" style="margin-top:12px"><span><i class="linekey green"></i>Punto: verde spessa</span><span><i class="linekey green" style="height:2px"></i>Positivo: verde sottile</span><span><i class="linekey red"></i>Errore: rosso spessa</span><span><i class="linekey red" style="height:2px"></i>Negativo: rosso sottile</span><span>Muro: linea rossa a V</span><span>Muro positivo: linea verde sottile a V</span></div></section>
 <h2>Anteprima campetti</h2><p>Il campo mostra la partenza dell’attacco nella zona di competenza e il bersaglio avversario. Le zone ibride (es. 56, 61, 54) sono rappresentate come punti intermedi tra le due zone.</p><div class="rotgrid" id="rotgrid"></div>
 </main><div class="pages" id="printpages"></div>
 <script>
@@ -64,7 +40,7 @@ const scoutingPdfData = "data:application/pdf;base64,JVBERi0xLjQKJcK1wrYKCjEgMCB
 const pdfLive=document.getElementById("pdfLive"); if(pdfLive) pdfLive.src=scoutingPdfData;
 function openScoutingPdf(){const a=document.createElement("a");a.href=scoutingPdfData;a.target="_blank";a.rel="noopener";a.click()}
 function downloadScoutingPdf(){const a=document.createElement("a");a.href=scoutingPdfData;a.download="scheda_scouting_pallavolo_aggiornata.pdf";document.body.appendChild(a);a.click();a.remove()}
-const rotations=["P1","P6","P5","P4","P3","P2"],bases=["B1","B7","B2","B/"],roles=["S1","S2","O","C1","C2","L"];let actions=[],players={};
+const rotations=["P1","P6","P5","P4","P3","P2","P1 (invertita)"],bases=["B1","B7","B2","B/"],roles=["S1","S2","O","P","C1","C2","L","S3","S4","P2","O2","C3","C4","Lib2"];let actions=[],players={};
 const $=id=>document.getElementById(id),v=id=>$(id).value;
 const AUTOSAVE_KEY="scoutVolleyProject_v1";
 let activeVideoUrl=null,videoFileName="";
@@ -80,8 +56,47 @@ function saveWorkFile(){const data=JSON.stringify(projectData(),null,2),blob=new
 function applyProject(data){if(!data||!Array.isArray(data.actions)||typeof data.players!=="object")throw new Error("File di progetto non valido");actions=data.actions;players=data.players||{};const f=data.form||{};Object.entries({phase:f.phase,rotation:f.rotation,receive:f.receive,receiveZone:f.receiveZone,base:f.base,attacker:f.attacker,customjersey:f.customjersey,origin:f.origin,trajectory:f.trajectory,zone:f.zone,outcome:f.outcome,notes:f.notes}).forEach(([id,val])=>{const el=$(id);if(el&&val!==undefined)el.value=val});render();persistWork();$("status").textContent="Lavoro ripreso: "+actions.length+" azioni caricate."}
 function loadWorkFile(event){const file=event.target.files&&event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{applyProject(JSON.parse(reader.result));}catch(e){alert("Impossibile caricare il file: non sembra un progetto Scout Volley valido.")};event.target.value=""};reader.onerror=()=>alert("Errore durante la lettura del file.");reader.readAsText(file)}
 function restoreAutosave(){try{const raw=localStorage.getItem(AUTOSAVE_KEY);if(raw){const data=JSON.parse(raw);if(Array.isArray(data.actions)){actions=data.actions;players=data.players||{};const f=data.form||{};Object.entries({phase:f.phase,rotation:f.rotation,receive:f.receive,receiveZone:f.receiveZone,base:f.base,attacker:f.attacker,customjersey:f.customjersey,origin:f.origin,trajectory:f.trajectory,zone:f.zone,outcome:f.outcome,notes:f.notes}).forEach(([id,val])=>{const el=$(id);if(el&&val!==undefined)el.value=val});$("saveStatus").textContent="Ultimo lavoro ripristinato automaticamente.";return true}}}catch(e){}return false}
-function savePlayer(){let role=v("role"),num=v("jersey").trim(),name=v("surname").trim();if(!num||!name){$("status").textContent="Inserisci numero di maglia e cognome.";return}players[role]={num,name};renderRoster();persistWork();$("status").textContent=role+" associato a "+num+" "+name}
-function renderRoster(){$("roster").innerHTML=roles.map(r=>`<div class="rosteritem"><strong>${r}</strong><div>${players[r]?players[r].num+" · "+players[r].name:"Non impostato"}</div></div>`).join("")}
+function savePlayer(){let role=v("role"),num=v("jersey").trim(),name=v("surname").trim();if(!num||!name){$("status").textContent="Inserisci numero di maglia e cognome.";return}players[role]={...(players[role]||{}),num,name};renderRoster();persistWork();$("status").textContent=role+" associato a "+num+" "+name}
+function editPlayerNote(role){const old=(players[role]&&players[role].note)||"";const note=prompt("Nota individuale per "+role+" (massimo 120 caratteri, spazi inclusi). Lascia vuoto per cancellarla:",old);if(note===null)return;players[role]=players[role]||{num:"",name:""};players[role].note=note.trim().slice(0,120);if(!players[role].note)delete players[role].note;renderRoster();persistWork();$("status").textContent=players[role].note?"Nota salvata per "+role+".":"Nota rimossa per "+role+"."}
+function choosePlayerPhoto(role){const p=players[role]||{};if(p.photo){const choice=prompt("Foto di "+role+": scrivi 1 per sostituirla, 2 per rimuoverla, Annulla per uscire.","1");if(choice===null)return;if(choice.trim()==="2"){delete players[role].photo;renderRoster();persistWork();$("status").textContent="Foto rimossa per "+role+".";return}if(choice.trim()!=="1")return;}const input=$("photo_"+role);if(input)input.click()}
+function savePlayerPhoto(event,role){const file=event.target.files&&event.target.files[0];if(!file)return;if(!file.type.startsWith("image/")){alert("Seleziona un file immagine.");event.target.value="";return}const reader=new FileReader();reader.onload=()=>{const img=new Image();img.onload=()=>{const max=160,scale=Math.min(1,max/Math.max(img.width,img.height)),canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height);const data=canvas.toDataURL("image/jpeg",0.55);players[role]=players[role]||{num:"",name:""};players[role].photo=data;renderRoster();persistWork();$("status").textContent="Foto ridotta e salvata per "+role+"."};img.onerror=()=>alert("Non riesco a leggere questa immagine.");img.src=reader.result};reader.readAsDataURL(file);event.target.value=""}
+function openPlayerProfile(role){
+ const p=players[role]||{};
+ const named=actions.filter(a=>a.attacker===role || (p.num && String(a.attacker)===String(p.num)));
+ const attackCount=named.filter(a=>a.out==="#"||a.out==="+"||a.out==="-"||a.out==="="||a.out==="=M"||a.out==="=M+").length;
+ const points=named.filter(a=>a.out==="#").length;
+ // Ricezione attribuita secondo ruolo/rotazione e zona, usando il modello di formazione disponibile.
+ // Il libero è considerato ricevitore prioritario nelle zone posteriori quando registrato in campo.
+ const receptionActions=actions.filter(a=>a.rec&&["R#","R+","R-","R="].includes(a.rec)&&["1","5","6"].includes(String(a.receiveZone||"6"))&&(receiverFor(a.rot,String(a.receiveZone||"6"))||[]).includes(role));
+ const positive=receptionActions.filter(a=>a.rec==="R#"||a.rec==="R+").length;
+ const pct=(n,d)=>d?Math.round(n/d*100):0;
+ $("profileName").textContent=(p.name||role);
+ $("profileIdentity").textContent=(p.num?"Maglia "+p.num+" · ":"")+role;
+ $("profileRole").textContent=role;
+ const im=$("profilePhoto");if(p.photo){im.src=p.photo;im.style.display="block"}else{im.removeAttribute("src");im.style.display="block";im.style.objectFit="contain";im.alt="Nessuna foto caricata"}
+ $("profileAttacks").textContent=attackCount;
+ $("profileAttackPct").textContent=pct(points,attackCount)+"%";
+ $("profileReceives").textContent=receptionActions.length;
+ $("profileReceivePct").textContent=pct(positive,receptionActions.length)+"%";
+ $("profileMethod").textContent="Ricezione stimata automaticamente da rotazione e zona secondo la mappatura disponibile; verifica che corrisponda alla formazione utilizzata.";
+ $("profileNote").textContent=p.note||"Nessuna nota inserita.";
+ $("profileOverlay").style.display="flex";
+}
+function closePlayerProfile(){$("profileOverlay").style.display="none"}
+function receiverFor(rot,zone){
+ // Mappatura della ricezione fornita dall'allenatore.
+ const map={
+  P1:{"1":["S1"],"5":["S2"],"6":["L"]},
+  P6:{"1":["S1"],"5":["S2"],"6":["L"]},
+  P5:{"1":["L"],"5":["S2"],"6":["S1"]},
+  P4:{"1":["L"],"5":["S2"],"6":["S1"]},
+  P3:{"1":["S2"],"5":["S1"],"6":["L"]},
+  P2:{"1":["L"],"5":["S1"],"6":["S2"]},
+  "P1 (invertita)":{"1":["L"],"5":["S1"],"6":["S2"]}
+ };
+ return (map[rot]&&map[rot][zone])||[];
+}
+function renderRoster(){const makeCard=r=>{const p=players[r]||{};const safeName=String(p.name||"Non impostato").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");return `<div class="rosteritem"><strong><button type="button" style="display:inline;width:auto;padding:2px 5px;background:transparent;color:var(--ink);border:1px solid var(--line)" onclick="openPlayerProfile('${r}')">${r}</button></strong><div class="player-name" role="button" tabindex="0" onclick="openPlayerProfile('${r}')" style="cursor:pointer">${p.num?String(p.num)+" · ":""}${safeName}</div><div class="player-tools"><button type="button" class="${p.note?"has-content":""}" title="Nota individuale" aria-label="Nota ${r}" onclick="editPlayerNote('${r}')">✎</button><button type="button" class="${p.photo?"has-content":""}" title="Carica, sostituisci o rimuovi foto" aria-label="Foto ${r}" onclick="choosePlayerPhoto('${r}')">▧</button><input id="photo_${r}" type="file" accept="image/*" style="display:none" onchange="savePlayerPhoto(event,'${r}')"></div></div>`};const first=roles.slice(0,7).map(makeCard).join("");const rest=roles.slice(7).map(makeCard).join("");$("roster").innerHTML=first+`<details class="roster-more"><summary>Altri giocatori (${roles.length-7}) ⌄</summary><div class="roster">${rest}</div></details>`}
 function defaultOrigin(rot,attacker){
   // Valori iniziali espliciti per il modello di rotazione indicato dall'allenatore;
   // la partenza può sempre essere corretta manualmente nel selettore.
@@ -125,20 +140,22 @@ function courtDraw(cv,items,allForStats){
  ctx.fillStyle="#526574";ctx.font="10px Arial";ctx.fillText("3m",4,h*.30);ctx.fillText("3m",4,h*.66);
  // Distribuzione del palleggiatore per zona di partenza dell'attacco:
  // in questa vista la zona 4 è a destra, la 3 al centro, la 2 a sinistra.
- // Si usa il campo origin (zona da cui parte l'attacco), non il ruolo dell'attaccante:
- // in questo modo un attacco da Z4 non viene conteggiato come Z2.
- const attacks=(allForStats||[]).filter(a=>a.origin && a.attacker && a.attacker!=="L");
+ // Distribuzione palleggiatore: gli attacchi da Z1 in P2-P3-P4
+ // sono attribuiti a Z2 (opposto). Gli attacchi da Z6 restano esclusi
+ // dalla distribuzione; continuano comunque a essere attribuiti al giocatore.
+ const attacks=(allForStats||[]).filter(a=>a.origin && a.attacker && a.attacker!=="L" && String(a.origin)!=="6");
  const distZones=["2","3","4"];
  const distTotal=attacks.length;
- const distCounts=distZones.map(z=>attacks.filter(a=>String(a.origin)===z).length);
+ const distributionZone=a=>String(a.origin)==="1" && ["P2","P3","P4"].includes(String(a.rot)) ? "2" : String(a.origin);
+ const distCounts=distZones.map(z=>attacks.filter(a=>distributionZone(a)===z).length);
  const distPcts=distCounts.map(n=>distTotal?Math.round(n/distTotal*100):0);
  ctx.save();ctx.font=`bold ${Math.max(7,Math.round(w*.045))}px Arial`;ctx.textAlign="center";
  const distXs=[w*.17,w*.5,w*.83],distY=h*.535,boxW=w*.29,boxH=Math.max(15,h*.075);
  distPcts.forEach((pct,i)=>{const x=distXs[i];ctx.fillStyle="rgba(255,255,255,.92)";ctx.fillRect(x-boxW/2,distY-boxH/2,boxW,boxH);ctx.strokeStyle="#526574";ctx.lineWidth=.7;ctx.strokeRect(x-boxW/2,distY-boxH/2,boxW,boxH);ctx.fillStyle="#263746";ctx.fillText(`${pct}%`,x,distY+Math.max(3,h*.012));});ctx.restore();
- // R%+ distinto per zona di ricezione 1, 5 e 6. Il denominatore è la ricezione codificata in quella zona.
+ // R%+ calcolato solo per le zone di ricezione 1, 5 e 6. Le zone 2, 3 e 4 sono registrate come situazioni sporadiche e non entrano in queste percentuali.
  const receptionZone=a=>a.receiveZone||a.rZone||a.receptionZone||null;
  const recItems=allForStats.filter(a=>["R#","R+","R-","R="].includes(a.rec));
- const zoneStats=["1","6","5"].map(z=>{const rows=recItems.filter(a=>receptionZone(a)===z);const positive=rows.filter(a=>a.rec==="R#"||a.rec==="R+").length;return {z,n:rows.length,p:rows.length?Math.round(positive/rows.length*100):0}});
+ const zoneStats=["1","5","6"].map(z=>{const rows=recItems.filter(a=>receptionZone(a)===z);const positive=rows.filter(a=>a.rec==="R#"||a.rec==="R+").length;return {z,n:rows.length,p:rows.length?Math.round(positive/rows.length*100):0}});
  ctx.fillStyle="#34495a";ctx.font="bold 9px Arial";ctx.fillText(zoneStats.map(x=>`R%+ Z${x.z} ${x.n?x.p+"%":"—"}`).join("  "),5,13);
  const point=(z,opp=false)=>{
    // Mappa zone coerente con la disposizione richiesta dall'allenatore:
@@ -156,8 +173,8 @@ function courtDraw(cv,items,allForStats){
  };
  const printMode=!!cv.closest(".printpage");
  items.forEach((a,i)=>{
-   const isPoint=a.out==="#",isPositive=a.out==="+",isNegative=a.out==="-",isError=a.out==="=",isBlocked=a.out==="=M";
-   let col=(isPoint||isPositive)?"#198754":"#d62828";
+   const isPoint=a.out==="#",isPositive=a.out==="+",isNegative=a.out==="-",isError=a.out==="=",isBlocked=a.out==="=M"||a.out==="=M+",isBlockedPositive=a.out==="=M+";
+   let col=(isPoint||isPositive||isBlockedPositive)?"#198754":"#d62828";
    // Negativo e muro subito: linea rossa sottile. Errori diretti restano più marcati.
    let thick=(isNegative||isBlocked)?1.25:(isPoint||isError?3:1.8);
    // La partenza è sempre la zona salvata nell'azione (anche per il pallonetto);
@@ -172,34 +189,44 @@ function courtDraw(cv,items,allForStats){
      String(x.zone||"6")===String(a.zone||"6")
    );
    const routeIndex=sameRoute.indexOf(a);
-   const laneStep=Math.max(4,w*.055);
+   const laneStep=Math.max(7,w*.085);
    const routeOffset=(routeIndex-(sameRoute.length-1)/2)*laneStep;
    const dx=ex-sx,dy=ey-sy,len=Math.hypot(dx,dy)||1,perpX=-dy/len,perpY=dx/len;
    // Le punte sono leggermente sfalsate, ma restano nella zona di arrivo selezionata.
-   const endpointShift=routeOffset*.28;
-   sx+=perpX*routeOffset*.10; sy+=perpY*routeOffset*.10;
+   const endpointShift=routeOffset*.48;
+   sx+=perpX*routeOffset*.20; sy+=perpY*routeOffset*.20;
    ex+=perpX*endpointShift; ey+=perpY*endpointShift;
-   // Per il muro, conserva la zona selezionata come direzione del primo tratto,
-   // ma termina il ritorno al centro del campo d'origine sulla linea dei 3 metri.
-   let wallNetX=sx+(ex-sx)*((h*.5-sy)/(ey-sy||1));
+   let blockedTipX=ex, blockedTipY=ey, blockedNetX=0;
    if(isBlocked){
-     ex=w*.50 + perpX*endpointShift*.15;
-     ey=sy<h*.5?h*.32:h*.68;
+     // Muro subito: la V attraversa la rete e rientra verso il centro del campo
+     // d'origine, terminando sulla linea dei 3 metri (zona 3/6), sia da zona 2 sia da zona 4.
+     const netY=h*.5;
+     const ratio=(netY-sy)/(ey-sy||1);
+     blockedNetX=sx+(ex-sx)*ratio;
+     blockedTipX=w*.5 + routeOffset*.55; // corsie separate come per le altre traiettorie
+     blockedTipY=sy<netY?h*.38:h*.62;
+     ex=blockedTipX; ey=blockedTipY;
    }
    const controlX=(sx+ex)/2+perpX*routeOffset*1.45;
    const controlY=(sy+ey)/2+perpY*routeOffset*1.45;
    const drawPath=()=>{
      ctx.beginPath();ctx.moveTo(sx,sy);
      if(isBlocked){
-       // Primo tratto rettilineo verso la zona d'attacco selezionata, fino alla rete;
-       // secondo tratto diagonale verso l'interno del campo d'origine (zona 6-3).
+       // Muro subito: va verso la rete e rientra nel campo d'origine,
+       // formando una V sottile che termina sulla linea dei 3 metri.
        const netY=h*.5;
-       ctx.lineTo(wallNetX,netY);
-       ctx.lineTo(ex,ey);
+       ctx.lineTo(blockedNetX,netY);
+       ctx.lineTo(blockedTipX,blockedTipY);
      } else if(a.tr==="Pa") {
+       // Il pallonetto mantiene una curva riconoscibile.
        ctx.quadraticCurveTo(controlX,controlY-h*.10,ex,ey);
+     } else if(sameRoute.length>1 && Math.abs(routeOffset)>0.1) {
+       // Attacco forte: traiettoria normalmente dritta; curva minima solo
+       // quando più attacchi condividono la stessa origine e destinazione.
+       const overlapCurve=Math.min(w*.075,Math.abs(routeOffset)*.62)*Math.sign(routeOffset);
+       ctx.quadraticCurveTo((sx+ex)/2+perpX*overlapCurve,(sy+ey)/2+perpY*overlapCurve,ex,ey);
      } else {
-       ctx.quadraticCurveTo(controlX,controlY,ex,ey);
+       ctx.lineTo(ex,ey);
      }
      ctx.stroke();
    };
@@ -210,13 +237,18 @@ function courtDraw(cv,items,allForStats){
    if(a.tr==="Pa"){ctx.beginPath();ctx.arc(sx,sy,Math.max(2,w*.012),0,Math.PI*2);ctx.fillStyle=col;ctx.fill();}
    {
      const tipX=ex, tipY=ey;
-     const netYForTip=h*.5, ratioForTip=(netYForTip-sy)/(ey-sy||1), netXForTip=sx+(ex-sx)*ratioForTip, angle=isBlocked?Math.atan2(ey-netYForTip,ex-wallNetX):Math.atan2(ey-controlY,ex-controlX),ah=Math.max(5,w*.035);
+     const netYForTip=h*.5;
+     // La punta segue la tangente finale della traiettoria: sulle linee dritte
+     // (punto/positivo/errore) resta allineata al colpo; sui pallonetti segue la curva.
+     const angle=isBlocked?Math.atan2(blockedTipY-netYForTip,blockedTipX-blockedNetX):
+       (a.tr==="Pa" || (sameRoute.length>1 && Math.abs(routeOffset)>0.1)) ? Math.atan2(ey-controlY,ex-controlX) : Math.atan2(ey-sy,ex-sx);
+     const ah=Math.max(5,w*.035);
      // Contorno bianco sotto la punta per non farla sparire tra altre frecce.
      ctx.beginPath();ctx.moveTo(ex,ey);ctx.lineTo(ex-ah*Math.cos(angle-.48),ey-ah*Math.sin(angle-.48));ctx.lineTo(ex-ah*Math.cos(angle+.48),ey-ah*Math.sin(angle+.48));ctx.closePath();
      ctx.fillStyle="#ffffff";ctx.fill();
      ctx.beginPath();ctx.moveTo(ex,ey);ctx.lineTo(ex-ah*Math.cos(angle-.48),ey-ah*Math.sin(angle-.48));ctx.lineTo(ex-ah*Math.cos(angle+.48),ey-ah*Math.sin(angle+.48));ctx.closePath();ctx.fillStyle=col;ctx.fill();
    }
-   // Le etichette testuali dell’attacco sono rimosse: nel campetto restano traiettorie e percentuali.
+   // Nessuna etichetta/codice d'attacco nel campetto: solo traiettorie e percentuali.
  });
 }
 function renderSetterDistribution(){
@@ -234,13 +266,8 @@ function distributionPrintText(phase){
  const keys=["S1","S2","O","C1","C2"],rows=actions.filter(a=>a.phase===phase&&keys.includes(a.attacker));const total=rows.length;
  return `Distribuzione attacco (${phase}): `+keys.map(k=>{const n=rows.filter(a=>a.attacker===k).length;return `${k} ${total?Math.round(n/total*100):0}% (${n})`}).join(" · ");
 }
-// Le percentuali sono condivise tra tutte le basi della stessa rotazione e fase.
-// Le traiettorie, invece, sono filtrate per la singola base del campetto.
-function statsForRotation(phase,rot){return actions.filter(a=>a.phase===phase&&a.rot===rot)}
-function render(){renderRoster();renderActionLog();renderSetterDistribution();let grid=$("rotgrid");grid.innerHTML="";rotations.forEach(rot=>{let box=document.createElement("div");box.className="rotation";box.innerHTML=`<h3>${rot}</h3><div class="courts">${bases.map(b=>`<div class="courtbox">${b}<canvas width="150" height="190" data-rot="${rot}" data-base="${b}"></canvas><div>Note: __________________</div></div>`).join("")}</div>`;grid.appendChild(box)});document.querySelectorAll("#rotgrid canvas").forEach(cv=>{let all=statsForRotation(v("phase"),cv.dataset.rot);courtDraw(cv,all.filter(a=>a.base===cv.dataset.base),all)});buildPrint()}
-function buildPrint(){let root=$("printpages");root.innerHTML="";["Cambio palla","Break point"].forEach(phase=>{let page=document.createElement("section");page.className="printpage";page.dataset.phase=phase;page.innerHTML=`<div class="printhead">SCOUTING PALLAVOLO — ${phase.toUpperCase()}</div><div class="printgrid">${rotations.map(rot=>`<div class="printrot"><h3>${rot}</h3><div class="printcourts">${bases.map(b=>`<div class="printcourt"><b>${b}</b><canvas width="150" height="190" data-rot="${rot}" data-base="${b}"></canvas></div>`).join("")}</div></div>`).join("")}</div>`;root.appendChild(page)});document.querySelectorAll(".printpage canvas").forEach(cv=>{let phase=cv.closest(".printpage").dataset.phase,all=statsForRotation(phase,cv.dataset.rot);courtDraw(cv,all.filter(a=>a.base===cv.dataset.base),all)});}
+function render(){renderRoster();renderActionLog();renderSetterDistribution();let grid=$("rotgrid");grid.innerHTML="";rotations.forEach(rot=>{let box=document.createElement("div");box.className="rotation";box.innerHTML=`<h3>${rot}</h3><div class="courts">${bases.map(b=>`<div class="courtbox">${b}<canvas width="150" height="190" data-rot="${rot}" data-base="${b}"></canvas><div>Note: __________________</div></div>`).join("")}</div>`;grid.appendChild(box)});document.querySelectorAll("#rotgrid canvas").forEach(cv=>{let all=actions.filter(a=>a.rot===cv.dataset.rot&&a.phase===v("phase"));courtDraw(cv,all.filter(a=>a.base===cv.dataset.base),all)});buildPrint()}
+function buildPrint(){let root=$("printpages");root.innerHTML="";["Cambio palla","Break point"].forEach(phase=>{let page=document.createElement("section");page.className="printpage";page.dataset.phase=phase;page.innerHTML=`<div class="printhead">SCOUTING PALLAVOLO — ${phase.toUpperCase()}</div><div class="printgrid">${rotations.map(rot=>`<div class="printrot"><h3>${rot}</h3><div class="printcourts">${bases.map(b=>`<div class="printcourt"><b>${b}</b><canvas width="220" height="240" data-rot="${rot}" data-base="${b}"></canvas><div class="note">Note: __________________</div></div>`).join("")}</div></div>`).join("")}</div>`;root.appendChild(page)});document.querySelectorAll(".printpage canvas").forEach(cv=>{let phase=cv.closest(".printpage").dataset.phase,all=actions.filter(a=>a.phase===phase&&a.rot===cv.dataset.rot);courtDraw(cv,all.filter(a=>a.base===cv.dataset.base),all)});}
 initVideoTools();restoreAutosave();render();
 document.querySelectorAll("#phase,#rotation,#receive,#receiveZone,#base,#attacker,#customjersey,#origin,#trajectory,#zone,#outcome,#notes").forEach(el=>{el.addEventListener("change",persistWork);el.addEventListener("input",persistWork)});
-</script>
-<script>if ('serviceWorker' in navigator && location.protocol.startsWith('http')) { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(err => console.warn('Service worker non registrato:', err))); }</script>
-</body></html>
+</script></body></html>
