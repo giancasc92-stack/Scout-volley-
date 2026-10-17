@@ -1,0 +1,10 @@
+SCOUT VOLLEY - PACCHETTO PWA CORRETTO
+
+Caricare questi file nella cartella principale del repository GitHub, sostituendo i file con lo stesso nome:
+- index.html
+- manifest.webmanifest
+- sw.js
+- icon-192.png
+- icon-512.png
+
+Non cancellare gli altri file. Dopo il caricamento, attendere la pubblicazione GitHub Pages e aprire il sito con ?v=4. Poi usare Chrome > menu > Installa e crea scorciatoia > Installa.

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="it">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><link rel="manifest" href="./manifest.webmanifest"><meta name="theme-color" content="#2458bd"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Scout Volley</title>
 <style>
 :root{color-scheme:light dark;--bg:light-dark(#f2f5f8,#141a22);--panel:light-dark(#fff,#202936);--ink:light-dark(#172b4d,#edf3fb);--muted:light-dark(#667085,#a8b3c2);--line:light-dark(#d5dee7,#3a4758);--accent:light-dark(#2458bd,#82aaff)}
@@ -270,4 +270,6 @@ function render(){renderRoster();renderActionLog();renderSetterDistribution();le
 function buildPrint(){let root=$("printpages");root.innerHTML="";["Cambio palla","Break point"].forEach(phase=>{let page=document.createElement("section");page.className="printpage";page.dataset.phase=phase;page.innerHTML=`<div class="printhead">SCOUTING PALLAVOLO — ${phase.toUpperCase()}</div><div class="printgrid">${rotations.map(rot=>`<div class="printrot"><h3>${rot}</h3><div class="printcourts">${bases.map(b=>`<div class="printcourt"><b>${b}</b><canvas width="220" height="240" data-rot="${rot}" data-base="${b}"></canvas><div class="note">Note: __________________</div></div>`).join("")}</div></div>`).join("")}</div>`;root.appendChild(page)});document.querySelectorAll(".printpage canvas").forEach(cv=>{let phase=cv.closest(".printpage").dataset.phase,all=actions.filter(a=>a.phase===phase&&a.rot===cv.dataset.rot);courtDraw(cv,all.filter(a=>a.base===cv.dataset.base),all)});}
 initVideoTools();restoreAutosave();render();
 document.querySelectorAll("#phase,#rotation,#receive,#receiveZone,#base,#attacker,#customjersey,#origin,#trajectory,#zone,#outcome,#notes").forEach(el=>{el.addEventListener("change",persistWork);el.addEventListener("input",persistWork)});
-</script></body></html>
+</script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(err=>console.error("Service worker:",err)));}</script>
+</body></html>
