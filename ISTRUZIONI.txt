@@ -1,5 +1,5 @@
-MATCH ANALYSIS VOLLEY — PACCHETTO PWA
-Nome visualizzato: Match Analysis Volley
-Icona: campo da pallavolo con linee tattiche, blu e bianco.
+MATCH ANALYSIS VOLLEY — PACCHETTO PWA AGGIORNATO
 
-Il pacchetto contiene index.html, manifest.webmanifest, icone 192/512 e service worker per l’uso offline dopo il primo caricamento. Per aggiornare un sito già pubblicato, caricare tutti i file nella cartella principale del sito. Dopo la pubblicazione, aggiornare/reinstallare l’app. Se il vecchio nome o la vecchia icona restano visibili, rimuovere la vecchia installazione e installare nuovamente.
+Caricare TUTTI i file estratti nella cartella principale pubblicata da GitHub Pages, sostituendo il vecchio index.html e i file manifest/service worker/icona con quelli qui inclusi. Non caricare solo lo ZIP e non lasciare index.html con un nome diverso.
+
+Contiene index.html aggiornato con selezione dei set sopra i campetti, manifest.webmanifest, icone 192/512 e service worker cache v6. Dopo il commit, attendere la pubblicazione e aprire il sito con ?v=6. Per aggiornare l'icona/nome dell'app installata potrebbe essere necessario reinstallarla; non cancellare dati locali prima di verificarli.
