@@ -3,7 +3,7 @@
   "name": "Match Analysis Volley",
   "short_name": "Match Analysis Volley",
   "description": "App di scouting e analisi della pallavolo",
-  "start_url": "./?source=pwa-v12",
+  "start_url": "./?source=pwa-v13",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f2f5f8",

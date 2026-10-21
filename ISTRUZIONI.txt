@@ -1,18 +1,18 @@
-MATCH ANALYSIS VOLLEY — VERSIONE 12
+MATCH ANALYSIS VOLLEY — VERSIONE 13
 
 Contenuto:
-- index.html: applicazione HTML versione 12 (Mani out in esito d’attacco)
-- manifest.webmanifest: nome e impostazioni installazione PWA
-- sw.js: cache per uso offline, cache aggiornata alla versione 12
-- icon-192.png e icon-512.png: icone dell’app
+- index.html: applicazione HTML con cestino per rimuovere un giocatore dalla formazione mantenendone l'archivio, salvataggio delle azioni del singolo giocatore dal profilo e numeri di maglia all'origine delle traiettorie.
+- manifest.webmanifest: nome e impostazioni installazione PWA.
+- sw.js: cache per uso offline, cache aggiornata alla versione 13.
+- icon-192.png e icon-512.png: icone dell'app.
 
 INSTALLAZIONE / AGGIORNAMENTO SU GITHUB PAGES
 1. Estrai lo ZIP.
 2. Carica/sostituisci TUTTI i file contenuti nella cartella nella radice del repository GitHub, mantenendo i nomi esatti.
 3. Attendi la pubblicazione di GitHub Pages.
-4. Apri il sito e aggiorna la pagina. Se l’app era già installata, può essere necessario chiuderla e riaprirla per ricevere la nuova versione.
+4. Apri il sito e aggiorna la pagina. Se l'app era già installata, può essere necessario chiuderla e riaprirla per ricevere la nuova versione.
 
 NOTA DATI
-I dati salvati nel browser (localStorage) restano associati al sito/dispositivo e non vengono trasferiti automaticamente tra dispositivi. Prima di sostituire la versione, esporta o fai backup dei dati importanti se la funzione è disponibile. Non cancellare i dati del sito per forzare l’aggiornamento.
+I dati salvati nel browser (localStorage) restano associati al sito/dispositivo e non vengono trasferiti automaticamente tra dispositivi. Prima di sostituire la versione, esporta o fai backup dei dati importanti se la funzione è disponibile. Non cancellare i dati del sito per forzare l'aggiornamento.
 
-Questa confezione contiene la versione HTML 12 recuperata. La traiettoria Mani out è inserita nell’esito d’attacco; verificare visivamente la V sul campetto prima di considerarla definitiva.
+La traiettoria Mani out resta in questa versione e non viene considerata definitivamente corretta: come richiesto, verrà rivista in un aggiornamento successivo.
