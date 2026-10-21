@@ -1,17 +1,26 @@
 {
   "id": "./",
   "name": "Match Analysis Volley",
-  "short_name": "Match Analysis",
-  "description": "App di scouting e analisi tattica della pallavolo, utilizzabile anche offline dopo la prima installazione.",
-  "lang": "it-IT",
-  "start_url": "./?v=6",
+  "short_name": "Match Analysis Volley",
+  "description": "App di scouting e analisi della pallavolo",
+  "start_url": "./?source=pwa-v12",
   "scope": "./",
   "display": "standalone",
-  "orientation": "any",
   "background_color": "#f2f5f8",
-  "theme_color": "#0754b8",
+  "theme_color": "#2458bd",
+  "orientation": "any",
   "icons": [
-    {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
-    {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"}
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }
