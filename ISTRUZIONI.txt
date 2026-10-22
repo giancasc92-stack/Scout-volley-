@@ -3,7 +3,7 @@ MATCH ANALYSIS VOLLEY — VERSIONE 13
 Contenuto:
 - index.html: applicazione HTML con cestino per rimuovere un giocatore dalla formazione mantenendone l'archivio, salvataggio delle azioni del singolo giocatore dal profilo e numeri di maglia all'origine delle traiettorie.
 - manifest.webmanifest: nome e impostazioni installazione PWA.
-- sw.js: cache per uso offline, cache aggiornata alla versione 14.
+- sw.js: cache per uso offline, cache aggiornata alla versione 13.
 - icon-192.png e icon-512.png: icone dell'app.
 
 INSTALLAZIONE / AGGIORNAMENTO SU GITHUB PAGES
@@ -16,3 +16,6 @@ NOTA DATI
 I dati salvati nel browser (localStorage) restano associati al sito/dispositivo e non vengono trasferiti automaticamente tra dispositivi. Prima di sostituire la versione, esporta o fai backup dei dati importanti se la funzione è disponibile. Non cancellare i dati del sito per forzare l'aggiornamento.
 
 La traiettoria Mani out resta in questa versione e non viene considerata definitivamente corretta: come richiesto, verrà rivista in un aggiornamento successivo.
+
+
+Versione v15: PDF A4 verticale, 6 rotazioni in colonna e 4 campetti per rotazione. Per aggiornare GitHub, caricare/sostituire index.html e sw.js nella cartella principale del repository.
