@@ -3,7 +3,7 @@ MATCH ANALYSIS VOLLEY — VERSIONE 13
 Contenuto:
 - index.html: applicazione HTML con cestino per rimuovere un giocatore dalla formazione mantenendone l'archivio, salvataggio delle azioni del singolo giocatore dal profilo e numeri di maglia all'origine delle traiettorie.
 - manifest.webmanifest: nome e impostazioni installazione PWA.
-- sw.js: cache per uso offline, cache aggiornata alla versione 13.
+- sw.js: cache per uso offline, cache aggiornata alla versione 14.
 - icon-192.png e icon-512.png: icone dell'app.
 
 INSTALLAZIONE / AGGIORNAMENTO SU GITHUB PAGES

@@ -232,20 +232,26 @@ function courtDraw(cv,items,allForStats){
    const endpointShift=routeOffset*.48;
    sx+=perpX*routeOffset*.20; sy+=perpY*routeOffset*.20;
    ex+=perpX*endpointShift; ey+=perpY*endpointShift;
-   // Numero di maglia in partenza: le etichette vengono sfalsate anche quando
-   // più attacchi partono dalla stessa zona, così non si coprono a vicenda.
+   // Un solo numero per giocatore nella stessa zona di partenza: tutte le sue
+   // traiettorie condividono lo stesso punto di ancoraggio. Solo giocatori diversi
+   // ricevono un piccolo sfalsamento per rendere leggibili i numeri.
    const sameOrigin=items.filter(x=>String(x.origin!==undefined&&x.origin!==null&&x.origin!==""?x.origin:defaultOrigin(x.rot,x.attacker))===originZone);
-   const originIndex=Math.max(0,sameOrigin.indexOf(a));
-   const labelOffsets=[[0,0]];const rings=Math.ceil(Math.sqrt(sameOrigin.length))+1;
+   const jerseyOf=x=>String(x.attackerNum||(players[x.attacker]&&players[x.attacker].num)||(/^\d+$/.test(String(x.attacker||""))?x.attacker:(x.attacker||"?")));
+   const playerKeyOf=x=>{const n=jerseyOf(x);return n!=="?"?"maglia:"+n:"ruolo:"+String(x.attacker||"?")};
+   const uniqueOriginPlayers=[];
+   sameOrigin.forEach(x=>{const key=playerKeyOf(x);if(!uniqueOriginPlayers.some(p=>p.key===key))uniqueOriginPlayers.push({key,action:x})});
+   const playerIndex=Math.max(0,uniqueOriginPlayers.findIndex(p=>p.key===playerKeyOf(a)));
+   const labelOffsets=[[0,0]];const rings=Math.ceil(Math.sqrt(uniqueOriginPlayers.length))+1;
    for(let ring=1;ring<=rings;ring++){
      for(let x=-ring;x<=ring;x++){labelOffsets.push([x*20,-ring*20],[x*20,ring*20]);}
      for(let y=-ring+1;y<ring;y++)labelOffsets.push([-ring*20,y*20],[ring*20,y*20]);
    }
-   const labelScale=w/150,lo=labelOffsets[originIndex]||[0,0];
-   const jerseyLabel=String(a.attackerNum||(players[a.attacker]&&players[a.attacker].num)||(/^\d+$/.test(String(a.attacker||""))?a.attacker:(a.attacker||"?")));
+   const labelScale=w/150,lo=labelOffsets[playerIndex]||[0,0];
+   const jerseyLabel=jerseyOf(a);
    const labelRadius=Math.max(7,w*.055),labelWEstimate=Math.max(labelRadius*2,jerseyLabel.length*Math.max(5,w*.04)+5),labelHEstimate=Math.max(13,labelRadius*1.65);
-   const labelX=Math.max(labelWEstimate/2+2,Math.min(w-labelWEstimate/2-2,sx+lo[0]*labelScale));
-   const labelY=Math.max(labelHEstimate/2+2,Math.min(h-labelHEstimate/2-2,sy+lo[1]*labelScale));
+   const anchorX=w*p1[0],anchorY=h*p1[1];
+   const labelX=Math.max(labelWEstimate/2+2,Math.min(w-labelWEstimate/2-2,anchorX+lo[0]*labelScale));
+   const labelY=Math.max(labelHEstimate/2+2,Math.min(h-labelHEstimate/2-2,anchorY+lo[1]*labelScale));
    const toEnd=Math.hypot(ex-labelX,ey-labelY)||1;
    sx=labelX+(ex-labelX)/toEnd*(labelRadius+1);sy=labelY+(ey-labelY)/toEnd*(labelRadius+1);
    let blockedTipX=ex, blockedTipY=ey, blockedNetX=0;
